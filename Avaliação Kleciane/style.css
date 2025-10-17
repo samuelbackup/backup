@@ -1,0 +1,320 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container centralizado */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #003366;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #ffb347;
+}
+
+.btn-whatsapp {
+    background-color: #ffb347;
+    color: #003366;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #ffc966;
+}
+
+/* Banner */
+.banner {
+    height: 70vh;
+    background-image: url('https://images.unsplash.com/photo-1572120360610-d971b9d7767c');
+    background-size: cover;
+    background-position: center;
+    margin-top: 64px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.banner-overlay h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.banner-overlay p {
+    margin-bottom: 24px;
+    font-size: 1.125rem;
+}
+
+/* Barra de busca */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: white;
+    color: #333;
+    padding: 16px;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+}
+
+.search-form input,
+.search-form select,
+.search-form button {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.search-form button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #002244;
+}
+
+@media (min-width: 768px) {
+    .search-form {
+        flex-direction: row;
+    }
+
+    .search-form input,
+    .search-form select,
+    .search-form button {
+        flex: 1;
+    }
+
+    .search-form button {
+        flex: 0 0 auto;
+        margin-left: 8px;
+    }
+}
+
+/* Seções */
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 20px;
+}
+
+.section h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 32px;
+}
+
+/* Cards grandes */
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #003366;
+}
+
+.card-content p {
+    margin-top: 8px;
+    color: #555;
+}
+
+.card-content .price {
+    color: #ffb347;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.card-content button {
+    margin-top: 16px;
+    width: 100%;
+    background-color: #003366;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card-content button:hover {
+    background-color: #002244;
+}
+
+/* Cards pequenos */
+.cards-container-small {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.card-small {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    text-align: center;
+}
+
+.card-small img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card-small h4 {
+    margin-top: 8px;
+    color: #003366;
+    font-weight: 600;
+}
+
+.card-small .price {
+    color: #ffb347;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+@media (min-width: 640px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-container-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cards-container-small {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Rodapé */
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 64px 20px 32px 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.footer-container h4 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.footer-copy {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+}
+
+/* Responsivo para o rodapé */
+@media (min-width: 640px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
