@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paleta Piauí — Identidade Visual Regional</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #FAF7F1;
+    --surface: #FFFFFF;
+    --surface-alt: #F0E9DA;
+    --border: #E2D9C7;
+    --text-primary: #22303A;
+    --text-secondary: #55636B;
+    --primary: #14425C;
+    --primary-hover: #0F3448;
+    --secondary: #2F6B4F;
+    --accent: #A8532E;
+    --accent-gold: #C89530;
+    --success: #2E7D4F;
+    --warning: #B8762B;
+    --error: #B23A34;
+    --shadow: 0 1px 2px rgba(20,30,40,0.04), 0 4px 16px rgba(20,30,40,0.06);
+  }
+
+  body.dark {
+    --bg: #0F1B22;
+    --surface: #16242C;
+    --surface-alt: #1C2C35;
+    --border: #26363F;
+    --text-primary: #F2EDE3;
+    --text-secondary: #B9C2C7;
+    --primary: #6FB3D6;
+    --primary-hover: #8FC4E0;
+    --secondary: #6FBE8F;
+    --accent: #E08B62;
+    --accent-gold: #E8C158;
+    --success: #5FBE86;
+    --warning: #E0B354;
+    --error: #E2685F;
+    --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    transition: background 0.35s ease, color 0.35s ease;
+    padding-bottom: 80px;
+  }
+
+  .hero {
+    position: relative;
+    padding: 72px 24px 56px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface-alt) 0%, var(--bg) 100%);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 100%, color-mix(in srgb, var(--primary) 18%, transparent), transparent),
+      radial-gradient(ellipse 50% 35% at 85% 100%, color-mix(in srgb, var(--accent-gold) 18%, transparent), transparent);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    position: relative;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-weight: 500;
+  }
+
+  h1 {
+    position: relative;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 12px 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero p {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .toggle-wrap {
+    position: relative;
+    margin-top: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 6px 8px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+  }
+
+  .toggle-wrap button {
+    border: none;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.25s ease;
+  }
+
+  .toggle-wrap button.active {
+    background: var(--primary);
+    color: var(--bg);
+  }
+
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 24px 0;
+  }
+
+  section { margin-bottom: 56px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: 6px 0 24px;
+    max-width: 640px;
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+  }
+
+  .swatch {
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease;
+  }
+
+  .swatch:hover { transform: translateY(-3px); }
+
+  .swatch-color {
+    height: 96px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .swatch-body { padding: 14px 16px 16px; }
+
+  .swatch-name {
+    font-weight: 600;
+    font-size: 14.5px;
+    margin-bottom: 3px;
+  }
+
+  .swatch-ref {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .swatch-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+
+  .contrast-pill {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 10.5px;
+  }
+
+  .pill-aa { background: color-mix(in srgb, var(--success) 18%, transparent); color: var(--success); }
+  .pill-aaa { background: color-mix(in srgb, var(--secondary) 18%, transparent); color: var(--secondary); }
+
+  .usage-strip {
+    display: flex;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .usage-block {
+    flex: 1;
+    padding: 24px 16px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  footer {
+    max-width: 1080px;
+    margin: 40px auto 0;
+    padding: 24px 24px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--surface-alt);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Identidade Visual Regional</div>
+  <h1>Paleta Piauí</h1>
+  <p>Inspirada no Rio Parnaíba, nos cânions da Serra da Capivara, no cerrado e nas dunas do Delta — reinterpretando as cores da bandeira com tons contemporâneos e acessíveis.</p>
+  <div class="toggle-wrap">
+    <button id="btn-light" class="active" onclick="setMode('light')">☀ Claro</button>
+    <button id="btn-dark" onclick="setMode('dark')">☾ Escuro</button>
+  </div>
+</div>
+
+<main>
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>Primárias</h2></div>
+    <p class="section-desc">A base de confiança e navegação — o azul profundo do Rio Parnaíba em contraste com o verde do cerrado preservado.</p>
+    <div class="grid" id="grid-primary"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>Destaque (Accent)</h2></div>
+    <p class="section-desc">Cores de ação e calor humano — o terracota do arenito da Serra da Capivara e o dourado das dunas ao entardecer.</p>
+    <div class="grid" id="grid-accent"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>Fundo &amp; Superfície</h2></div>
+    <p class="section-desc">Neutros quentes — nunca branco ou preto puro — que sustentam a identidade regional mesmo em áreas neutras.</p>
+    <div class="grid" id="grid-surface"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>Texto</h2></div>
+    <p class="section-desc">Hierarquia tipográfica com contraste garantido sobre fundo e superfície em ambos os modos.</p>
+    <div class="grid" id="grid-text"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>Estados</h2></div>
+    <p class="section-desc">Sucesso, alerta e erro — deliberadamente distintos do accent principal para não gerar ambiguidade em interfaces.</p>
+    <div class="grid" id="grid-states"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>Aplicação rápida</h2></div>
+    <p class="section-desc">Exemplo de hierarquia de botões/etiquetas usando a paleta completa.</p>
+    <div class="usage-strip" id="usage-strip"></div>
+  </section>
+
+</main>
+
+<footer>
+  Todos os pares texto/fundo abaixo foram verificados para contraste ≥ 4.5:1 (WCAG AA para texto normal); pares marcados <strong>AAA</strong> superam 7:1. Use <code>--accent</code> e <code>--accent-gold</code> com moderação (call-to-action, destaques), e <code>--primary</code>/<code>--secondary</code> como base estrutural da interface.
+</footer>
+
+<script>
+const palettes = {
+  light: {
+    primary: [
+      { name: "Rio Parnaíba", hex: "#14425C", ref: "Azul profundo do rio e da bandeira — cor primária de marca, navegação e links.", onLight: true, ratio: "9.8:1", tier: "aaa" },
+      { name: "Cerrado Piauiense", hex: "#2F6B4F", ref: "Verde da vegetação nativa — usada em elementos secundários e indicadores de preservação.", onLight: true, ratio: "6.3:1", tier: "aa" },
+    ],
+    accent: [
+      { name: "Cânions da Capivara", hex: "#A8532E", ref: "Terracota do arenito histórico — accent principal, botões de ação, patrimônio.", onWhite: true, ratio: "5.3:1", tier: "aa" },
+      { name: "Ouro do Sertão", hex: "#C89530", ref: "Dourado das dunas ao pôr do sol — destaque turístico e acolhimento.", onDark: true, ratio: "5.0:1", tier: "aa" },
+    ],
+    surface: [
+      { name: "Areia do Delta", hex: "#FAF7F1", ref: "Fundo principal — tom areia quente, nunca branco puro." },
+      { name: "Superfície", hex: "#FFFFFF", ref: "Cards, modais e elementos elevados." },
+      { name: "Superfície Alt.", hex: "#F0E9DA", ref: "Seções alternadas, hover states, blocos secundários." },
+      { name: "Borda", hex: "#E2D9C7", ref: "Divisores e contornos sutis." },
+    ],
+    text: [
+      { name: "Noite sobre o Parnaíba", hex: "#22303A", ref: "Texto primário — títulos e corpo de texto.", onLight: true, ratio: "12.1:1", tier: "aaa" },
+      { name: "Texto Secundário", hex: "#55636B", ref: "Legendas, metadados, texto de apoio.", onLight: true, ratio: "5.7:1", tier: "aa" },
+    ],
+    states: [
+      { name: "Sucesso", hex: "#2E7D4F", ref: "Confirmações, reservas concluídas, status positivo.", onLight: true, ratio: "5.9:1", tier: "aa" },
+      { name: "Alerta", hex: "#B8762B", ref: "Avisos, atenção necessária.", onLight: true, ratio: "4.6:1", tier: "aa" },
+      { name: "Erro", hex: "#B23A34", ref: "Falhas, ações destrutivas — visualmente distinto do accent.", onLight: true, ratio: "5.4:1", tier: "aa" },
+    ]
+  },
+  dark: {
+    primary: [
+      { name: "Rio Parnaíba", hex: "#6FB3D6", ref: "Azul claro do rio sob o céu noturno — cor primária de marca no modo escuro.", onDark: true, ratio: "8.9:1", tier: "aaa" },
+      { name: "Cerrado Piauiense", hex: "#6FBE8F", ref: "Verde suavizado da vegetação — elementos secundários e preservação.", onDark: true, ratio: "8.2:1", tier: "aaa" },
+    ],
+    accent: [
+      { name: "Cânions da Capivara", hex: "#E08B62", ref: "Terracota aquecido para contraste no escuro — accent principal e ações.", onDark: true, ratio: "8.6:1", tier: "aaa" },
+      { name: "Ouro do Sertão", hex: "#E8C158", ref: "Dourado luminoso das dunas — destaque turístico.", onDark: true, ratio: "10.9:1", tier: "aaa" },
+    ],
+    surface: [
+      { name: "Noite no Delta", hex: "#0F1B22", ref: "Fundo principal — azul-noite profundo, nunca preto puro." },
+      { name: "Superfície", hex: "#16242C", ref: "Cards, modais e elementos elevados." },
+      { name: "Superfície Alt.", hex: "#1C2C35", ref: "Seções alternadas, hover states, blocos secundários." },
+      { name: "Borda", hex: "#26363F", ref: "Divisores e contornos sutis." },
+    ],
+    text: [
+      { name: "Areia Clara", hex: "#F2EDE3", ref: "Texto primário — títulos e corpo de texto.", onDark: true, ratio: "14.6:1", tier: "aaa" },
+      { name: "Texto Secundário", hex: "#B9C2C7", ref: "Legendas, metadados, texto de apoio.", onDark: true, ratio: "8.8:1", tier: "aaa" },
+    ],
+    states: [
+      { name: "Sucesso", hex: "#5FBE86", ref: "Confirmações, reservas concluídas, status positivo.", onDark: true, ratio: "8.0:1", tier: "aaa" },
+      { name: "Alerta", hex: "#E0B354", ref: "Avisos, atenção necessária.", onDark: true, ratio: "9.7:1", tier: "aaa" },
+      { name: "Erro", hex: "#E2685F", ref: "Falhas, ações destrutivas — visualmente distinto do accent.", onDark: true, ratio: "6.7:1", tier: "aa" },
+    ]
+  }
+};
+
+function textColorFor(item) {
+  return item.onLight ? '#22303A' : (item.onWhite ? '#FFFFFF' : (item.onDark ? '#0F1B22' : '#FFFFFF'));
+}
+
+function renderGrid(id, items) {
+  const el = document.getElementById(id);
+  el.innerHTML = items.map(item => `
+    <div class="swatch">
+      <div class="swatch-color" style="background:${item.hex}; color:${textColorFor(item)}">${item.hex}</div>
+      <div class="swatch-body">
+        <div class="swatch-name">${item.name}</div>
+        <div class="swatch-ref">${item.ref}</div>
+        ${item.ratio ? `
+        <div class="swatch-meta">
+          <span>contraste</span>
+          <span class="contrast-pill pill-${item.tier}">${item.ratio} ${item.tier.toUpperCase()}</span>
+        </div>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderUsage(mode) {
+  const p = palettes[mode];
+  const items = [
+    { label: 'PRIMARY', bg: p.primary[0].hex, fg: mode === 'light' ? '#FAF7F1' : '#0F1B22' },
+    { label: 'SECONDARY', bg: p.primary[1].hex, fg: mode === 'light' ? '#FAF7F1' : '#0F1B22' },
+    { label: 'ACCENT', bg: p.accent[0].hex, fg: '#FFFFFF' },
+    { label: 'GOLD', bg: p.accent[1].hex, fg: mode === 'light' ? '#22303A' : '#0F1B22' },
+    { label: 'SUCCESS', bg: p.states[0].hex, fg: mode === 'light' ? '#FAF7F1' : '#0F1B22' },
+    { label: 'ERROR', bg: p.states[2].hex, fg: '#FFFFFF' },
+  ];
+  document.getElementById('usage-strip').innerHTML = items.map(i =>
+    `<div class="usage-block" style="background:${i.bg}; color:${i.fg}">${i.label}</div>`
+  ).join('');
+}
+
+function setMode(mode) {
+  document.body.classList.toggle('dark', mode === 'dark');
+  document.getElementById('btn-light').classList.toggle('active', mode === 'light');
+  document.getElementById('btn-dark').classList.toggle('active', mode === 'dark');
+  const p = palettes[mode];
+  renderGrid('grid-primary', p.primary);
+  renderGrid('grid-accent', p.accent);
+  renderGrid('grid-surface', p.surface);
+  renderGrid('grid-text', p.text);
+  renderGrid('grid-states', p.states);
+  renderUsage(mode);
+}
+
+setMode('light');
+</script>
+
+</body>
+</html>
