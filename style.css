@@ -1,0 +1,91 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #EFE8D8;
+    background-position: center;
+    opacity: 0.3; 
+    z-index: -1;
+}
+
+
+header {
+    background-color: #F0E9DA;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #241F19;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #241F19;
+}
+
+
+.nivel {
+    background-color: #B08A3E;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nivel h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.nivel a {
+    text-decoration: none;
+    color: #2a7ae2;
+    font-weight: bold;
+}
+
+.nivel a:hover {
+    color: #1a5ec8;
+    text-decoration: underline;
+}
+.botao-link{
+    padding: 10px 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #241F19;
+    font-size: 0.9rem;
+}
